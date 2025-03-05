@@ -66,18 +66,22 @@ print(random_digits)
 # Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
 
 random_digits_even = random_digits[::2]
-print(random_digits_even)
+print(f'Poriniai indeksai {random_digits_even}')
 random_digits_odd = random_digits[1::2]
-print(random_digits_odd)
+print(f'Neporiniai indeksai: {random_digits_odd}')
 
 random_digits_even1 = []
 random_digits_odd1 = []
 for i in range(0, len(random_digits)):
     if i % 2 == 0:
-        print(i, random_digits[i])
-    else: i % 2 == 1
-        print(i, random_digits[i])
-print(i)
+        # print(i, random_digits[i])
+        random_digits_even1.append(random_digits[i])
+    else:
+        random_digits_odd1.append(random_digits[i])
+print("Poriniai indeksai: ", random_digits_even1)
+print("Neporiniai indeksai: ", random_digits_odd1)
+
+
 
 
 
