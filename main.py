@@ -65,11 +65,13 @@ print(random_digits)
 
 # Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
 
+# f.1
 random_digits_even = random_digits[::2]
-print(f'Poriniai indeksai {random_digits_even}')
+print(f'f.1 Poriniai indeksai {random_digits_even}')
 random_digits_odd = random_digits[1::2]
-print(f'Neporiniai indeksai: {random_digits_odd}')
+print(f'f.1 Neporiniai indeksai: {random_digits_odd}')
 
+# f.2
 random_digits_even1 = []
 random_digits_odd1 = []
 for i in range(0, len(random_digits)):
@@ -78,8 +80,165 @@ for i in range(0, len(random_digits)):
         random_digits_even1.append(random_digits[i])
     else:
         random_digits_odd1.append(random_digits[i])
-print("Poriniai indeksai: ", random_digits_even1)
-print("Neporiniai indeksai: ", random_digits_odd1)
+print("f.2 Poriniai indeksai: ", random_digits_even1)
+print("f.2 Neporiniai indeksai: ", random_digits_odd1)
+
+# Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+
+
+for i in range(0, len(random_digits), 2):
+    if random_digits[i] > 15:
+        random_digits[i] = 0
+print(f'Pakeistos reiksmes i 0, jei buvo  > 5: ', random_digits)
+
+# Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+
+print("--- uzd 2.h ---")
+print(random_digits)
+for i in range(0, len(random_digits)):
+    if random_digits[i] > 10:
+        print(i)
+        break
+
+print("----uzd.3----")
+
+# Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+
+raides = ["A","B","C","D"]
+masyvas_r = []
+
+for i in range(0,200):
+    raides_vieta = random.randint(0,3)
+    raide = raides[raides_vieta]
+    masyvas_r.append(raide)
+
+sk_A = 0
+sk_B = 0
+sk_C = 0
+sk_D = 0
+
+for raide in masyvas_r:
+    if raide == "A":
+        sk_A += 1
+    if raide == "B":
+        sk_B += 1
+    if raide == "C":
+        sk_C += 1
+    if raide == "D":
+        sk_D += 1
+
+print(masyvas_r)
+print(f'A: {sk_A}, B: {sk_B}, C: {sk_C}, D: {sk_D}')
+
+
+print('-----uzd.4-----')
+
+# Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
+
+for _ in range(len(masyvas_r)):
+    for i in range(len(masyvas_r) - 1):
+        if masyvas_r[i] > masyvas_r[i + 1]:
+            masyvas_r[i], masyvas_r[i + 1] = masyvas_r[i + 1], masyvas_r[i]
+
+print(masyvas_r)
+# pasiaiskinti
+
+print("-----uzd.5------")
+
+# Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek skirtingų reikšmių kombinacijų gavote.
+
+
+raides = ["A","B","C","D"]
+mas_r1 = []
+mas_r2 = []
+mas_r3 = []
+mas_sum = []
+
+
+for i in range(0,200):
+    raides_vieta = random.randint(0,3)
+    raide = raides[raides_vieta]
+    mas_r1.append(raide)
+
+for i in range(0,200):
+    raides_vieta = random.randint(0,3)
+    raide = raides[raides_vieta]
+    mas_r2.append(raide)
+
+for i in range(0,200):
+    raides_vieta = random.randint(0,3)
+    raide = raides[raides_vieta]
+    mas_r3.append(raide)
+
+for i in range(len(mas_r1)):
+    mas_sum.append(mas_r1[i] + mas_r2[i] + mas_r3[i])
+print(mas_sum)
+
+unikomb = []
+for komb in mas_sum:
+    if komb not in unikomb:
+        unikomb.append(komb)
+komb_sk = len(unikomb)
+print(f'{komb_sk} skirtingos reiksmes.TAIP!!!')
+
+# kombinacija = "BBD"
+# if kombinacija in mas_sum:
+#     print(f'Taigi {kombinacija} YRA sarase')
+# else:
+#     print(f'Tiesiog nepasiseke :(')
+
+
+print("-----Uzd.6------")
+
+# Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+
+mas_1 = []
+mas_2 = []
+for _ in range(100):
+    num = random.randint(100, 999)
+    while num in mas_1:
+        num = random.randint(100, 999)
+    mas_1.append(num)
+
+for _ in range(100):
+    num = random.randint(100, 999)
+    while num in mas_2:
+        num = random.randint(100, 999)
+    mas_2.append(num)
+
+print(f'Pirmas masyvas {mas_1}')
+print(f'Antras masyvas {mas_2}')
+
+print("------------Uzd.7------------")
+
+# Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame
+# 6 uždavinio masyve.
+
+mas_3 = [num for num in mas_1 if num not in mas_2]
+
+print(f'Reiksmes is pirmo masyvo, bet ne is antro {mas_3}')
+
+print("-------------uzd.8-------------")
+
+# Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
+
+mas_4 = []
+for num in mas_1:
+    if num in mas_2:
+        mas_4.append(num)
+
+print(f'Reiksmes, pasikartojancios abiejuose masyvuose {mas_4}')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
