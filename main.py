@@ -1,6 +1,6 @@
 import random
 
-# ================================= MASYVAI =================================
+# ====================== MASYVAI ===================
 
 # Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 
@@ -49,5 +49,36 @@ print(random_digits_2)
 # for i in random_digits:
 #     print(f'{position} {i}')
 #     position += 1
+
+# Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+# e.1
+# random_digits.extend([random.randint(5,25)
+# for _ in range(10)])
+# print(random_digits)
+
+# e.2
+num_digits = 10
+for _ in range(num_digits):
+    random_dig = random.randint(5,25)
+    random_digits.append(random_dig)
+print(random_digits)
+
+# Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+
+random_digits_even = random_digits[::2]
+print(random_digits_even)
+random_digits_odd = random_digits[1::2]
+print(random_digits_odd)
+
+random_digits_even1 = []
+random_digits_odd1 = []
+for i in range(0, len(random_digits)):
+    if i % 2 == 0:
+        print(i, random_digits[i])
+    else: i % 2 == 1
+        print(i, random_digits[i])
+print(i)
+
+
 
 
