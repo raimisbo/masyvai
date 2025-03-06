@@ -190,7 +190,8 @@ print(f'{komb_sk} skirtingos reiksmes.TAIP!!!')
 
 print("-----Uzd.6------")
 
-# Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+# Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100.
+# Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 
 mas_1 = []
 mas_2 = []
@@ -229,7 +230,41 @@ for num in mas_1:
 
 print(f'Reiksmes, pasikartojancios abiejuose masyvuose {mas_4}')
 
+print("---------uzd.9----------")
 
+# Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25.
+# Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+
+
+num_1 = random.randint(5,25)
+num_2 = random.randint(5,25)
+
+mas = [num_1, num_2]
+print(mas)
+for i in range(1,9):
+    mas.append(mas[i-1] + mas[i])
+print(mas)
+
+
+print("============Uzd.10=============")
+
+# Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
+
+
+mas_10 = []
+dydis = 101
+
+while len(mas_10) < dydis:
+    num = random.randint(0,300)
+    if num not in mas_10:
+        mas_10.append(num) #pakrautas ciklas be pasikartojanciu
+# print(mas_10)
+
+for i in range(len(mas_10)):
+        for r in range(i + 1, len(mas_10)):
+            if mas_10[i] > mas_10[r]:                    #isrikiuotas > (galima <)
+                mas_10[i], mas_10[r] = mas_10[r], mas_10[i]
+print(mas_10)
 
 
 
